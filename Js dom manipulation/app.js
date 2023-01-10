@@ -10,15 +10,19 @@ changeColor.addEventListener("click", function(){
 });
 
 for(user of users){
-   user.addEventListener("click", function(){
-       this.style.color = "lightblue";
-   });
+   addElementEvent(user);
+}
+
+function addElementEvent(element){
+    element.addEventListener("click", function(){
+        this.style.color = "lightblue";
+    });
 }
 
 addNameBtn.addEventListener("click", function(){
     const newLi = document.createElement("LI");
     const liContent = document.createTextNode(listInput.value);
-    console.log(listInput.value);
     newLi.appendChild(liContent);
+    addElementEvent(newLi);
     userList.appendChild(newLi);
 });
